@@ -28,7 +28,8 @@ async function check() {
                 try {
                     JSON.parse(q.content);
                 } catch (e) {
-                    console.error(`❌ Invalid JSON for question ${q._id}:`, e.message);
+                    const error = e as Error;
+                    console.error(`❌ Invalid JSON for question ${q._id}:`, error.message);
                     console.error('Content:', q.content);
                     invalid++;
                 }
