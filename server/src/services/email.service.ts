@@ -4,7 +4,7 @@ import { config } from '../config/index.js';
 const transporter = nodemailer.createTransport({
   host: config.brevo.smtpHost,
   port: config.brevo.smtpPort,
-  secure: false,
+  secure: config.brevo.smtpPort === 465, // Use SSL for port 465
   auth: {
     user: config.brevo.smtpUser,
     pass: config.brevo.smtpKey,
