@@ -9,6 +9,7 @@ import cheatRoutes from './routes/cheat.routes.js';
 import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
+app.set('trust proxy', 1); // Trust first proxy (Render load balancer)
 
 // Body parser
 app.use(express.json({ limit: '10mb' }));
